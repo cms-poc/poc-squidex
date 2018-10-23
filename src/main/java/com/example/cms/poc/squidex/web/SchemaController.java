@@ -22,7 +22,6 @@ public class SchemaController {
         if (! tokenHolder.isAuthenticated()) {
             tokenHolder.authenticate();
         }
-        contentRepository.items(schema, tokenHolder.getAccessToken()).getItems().forEach(System.out::println);
         return contentRepository.items(schema, tokenHolder.getAccessToken()).getItems();
     }
 
