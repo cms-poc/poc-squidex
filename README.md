@@ -92,6 +92,32 @@ $ ./mvnw spring-boot:run
 
 The application will be accessible at `http://localhost:8080`.
 
+## Setting up Data
+
+Some things need to be set up in the Squidex admin application before the proof of concept application can begin to
+access the API. The application will attempt to read simple items that have "id" and "name" fields from two schemas
+called "stuff" and "things" in an app called "myapp". The app, its schemas, and the client information to use to
+connect must all be defined manually.
+
+1. Create an app.
+   * Click "New App".
+   * Enter the name "myapp".
+   * Click "Create".
+2. Define a client and generate a token for the client.
+   * Select the "myapp" app.
+   * Click "Settings" and then "Clients".
+   * Enter the client name "poc-squidex" and click "Add Client".
+   * Note the "Client Id" and "Client Secret". You will need to set the SQUIDEX_CLIENT_ID and SQUIDEX_CLIENT_SECRET
+     environment variables to these values.
+3. Create a schema.
+   * Click "Schemas" and then the "+" (New Schema) button.
+   * Select "Single content", enter "stuff" as the name, and click "Create".
+   * Select the "stuff" schema and click "Add Field".
+   * Select "Number", enter "id" as the name, and click "Create and new field".
+   * Enter "name" as the field name and click "Create and close".
+   * Repeat all steps in this item to create another schema called "things".
+
 ## Observations
 
-* TBC
+* The custom API documentation generated using Swagger is really nice.
+* Apps, schemas, and schema item fields cannot be defined using the API.
