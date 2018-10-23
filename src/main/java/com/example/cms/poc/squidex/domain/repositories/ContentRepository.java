@@ -6,6 +6,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @FeignClient(name = "content", configuration = FeignConfiguration.class)
@@ -13,15 +15,16 @@ public interface ContentRepository {
     @PostMapping(path = "/identity-server/connect/token", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @Headers("Content-Type: application/x-www-form-urlencoded")
     ClientToken token(Map<String, ?> clientGrant);
-//
-//    @GetMapping("/api/content/myapp/myschema")
-//    Collections collections(@RequestHeader("Authorization") String bearerToken);
-//
-//    @PostMapping("/api/content/myapp/myschema")
-//    void addCollection(@RequestBody Collection collection, @RequestHeader("Authorization") String bearerToken);
-//
-//    @GetMapping("/api/content/myapp/myschema")
-//    Items items(@PathVariable("collection") String collection, @RequestHeader("Authorization") String bearerToken);
+
+    default List<String> schemas() {
+        List<String> schemas = new ArrayList<>();
+        schemas.add("stuff");
+        schemas.add("things");
+        return schemas;
+    }
+
+    @GetMapping("/api/content/myapp/{schema}")
+    Response items(@PathVariable("schema") String schema, @RequestHeader("Authorization") String bearerToken);
 //
 //    @PostMapping("/api/content/myapp/myschema")
 //    void addItem(@PathVariable("collection") String collection, @RequestBody Item item, @RequestHeader("Authorization") String bearerToken);

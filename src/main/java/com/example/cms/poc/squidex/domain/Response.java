@@ -6,7 +6,10 @@ import lombok.NonNull;
 import java.util.List;
 
 @Data
-public class Items {
+public class Response {
     @NonNull
-    private final List<Item> data;
+    private Integer total;
+
+    @NonNull
+    private List<Item> items;
 }

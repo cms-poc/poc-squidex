@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Items in Collection "<span th:text="${collection}"></span>"</h3>
+            <h3>Items in Schema "<span th:text="${schema}"></span>"</h3>
 
             <table class="col table-striped">
                 <thead>
@@ -28,7 +28,7 @@
                 </tbody>
             </table>
 
-            <form class="pt-4" th:action="@{/{collection}/items(collection=${collection})}" method="post">
+            <form class="pt-4" th:action="@{/{schema}/items(schema=${schema})}" method="post">
                 <div class="form-group">
                     <input id="id" name="id" type="text" class="form-control" placeholder="New item ID" autofocus/>
                 </div>

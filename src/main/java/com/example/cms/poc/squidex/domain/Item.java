@@ -6,8 +6,8 @@ import lombok.NonNull;
 @Data
 public class Item {
     @NonNull
-    private final Integer id;
+    private final String id;
 
     @NonNull
-    private final String name;
+    private final ItemData data;
 }

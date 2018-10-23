@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h3>Collections</h3>
+            <h3>Schemas</h3>
 
             <table class="col table-striped">
                 <thead>
@@ -20,26 +20,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="collection : ${collections}">
+                <tr th:each="schema : ${schemas}">
                     <td>
-                        <a th:href="@{/{collection}/items(collection=${collection.name})}" th:text="${collection.name}"></a>
+                        <a th:href="@{/{schema}/items(schema=${schema})}" th:text="${schema}"></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
-
-            <form class="pt-4" action="/" method="post">
-                <div class="form-group">
-                    <input id="name" name="name" type="text" class="form-control" placeholder="New collection name" autofocus/>
-                </div>
-                <input type="hidden" name="managed" value="true"/>
-                <input type="hidden" name="hidden" value="false"/>
-                <input type="hidden" name="single" value="false"/>
-                <div class="form-group">
-                    <input id="note" name="note" type="text" class="form-control" placeholder="A brief description of the new collection"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-            </form>
         </div>
     </div>
 </div>

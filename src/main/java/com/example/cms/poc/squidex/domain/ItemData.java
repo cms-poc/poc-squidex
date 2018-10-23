@@ -3,10 +3,11 @@ package com.example.cms.poc.squidex.domain;
 import lombok.Data;
 import lombok.NonNull;
 
-import java.util.List;
-
 @Data
-public class Collections {
+public class ItemData {
     @NonNull
-    private final List<ListedCollection> data;
+    private final Integer id;
+
+    @NonNull
+    private final String name;
 }

@@ -9,36 +9,34 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class CollectionController {
+public class SchemaController {
     private final TokenHolder tokenHolder;
 
     private final ContentRepository contentRepository;
 
     @ModelAttribute("items")
-    public List<Item> items(@PathVariable("collection") String collection) {
+    public List<Item> items(@PathVariable("schema") String schema) {
         if (! tokenHolder.isAuthenticated()) {
             tokenHolder.authenticate();
         }
-        return new ArrayList<>();
-//        return contentRepository.items(collection, "admin_token").getData();
+        return contentRepository.items(schema, tokenHolder.getAccessToken()).getItems();
     }
 
-    @GetMapping("/{collection}/items")
+    @GetMapping("/{schema}/items")
     public String items() {
-        return "collection";
+        return "schema";
     }
 
-    @PostMapping("/{collection}/items")
-    public String createCollection(@PathVariable("collection") String collection, @ModelAttribute("item") Item item) {
+    @PostMapping("/{schema}/items")
+    public String createItem(@PathVariable("schema") String schema, @ModelAttribute("item") Item item) {
         if (! tokenHolder.isAuthenticated()) {
             tokenHolder.authenticate();
         }
-//        contentRepository.addItem(collection, item, "admin_token");
-        return String.format("redirect:/%s/items", collection);
+//        contentRepository.addItem(schema, item);
+        return String.format("redirect:/%s/items", schema);
     }
 }
