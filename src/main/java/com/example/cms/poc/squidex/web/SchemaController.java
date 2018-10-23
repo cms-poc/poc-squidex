@@ -38,7 +38,7 @@ public class SchemaController {
         if (! tokenHolder.isAuthenticated()) {
             tokenHolder.authenticate();
         }
-        contentRepository.addItem(schema, formItem.toItemData(), tokenHolder.getAccessToken());
+        contentRepository.addItem(schema, true, formItem.toItemData(), tokenHolder.getAccessToken());
         return String.format("redirect:/%s/items", schema);
     }
 }

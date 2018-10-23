@@ -111,7 +111,7 @@ connect must all be defined manually.
      environment variables to these values.
 3. Create a schema.
    * Click "Schemas" and then the "+" (New Schema) button.
-   * Select "Single content", enter "stuff" as the name, and click "Create".
+   * Enter "stuff" as the name and click "Create".
    * Select the "stuff" schema and click "Add Field".
    * Select "Number", enter "id" as the name, and click "Create and new field".
    * Enter "name" as the field name and click "Create and close".

@@ -22,8 +22,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="item : ${items}">
-                    <td th:text="${item.data.id.iv}"></td>
-                    <td th:text="${item.data.name.iv}"></td>
+                    <td th:text="${item.data?.id?.iv}"></td>
+                    <td th:text="${item.data?.name?.iv}"></td>
                 </tr>
                 </tbody>
             </table>
