@@ -1,13 +1,15 @@
 package com.example.cms.poc.squidex.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NonNull;
 
 @Data
 public class Item {
     @NonNull
-    private final String id;
+    @JsonProperty("id")
+    private String id;
 
     @NonNull
-    private final ItemData data;
+    private ItemData data;
 }
