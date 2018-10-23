@@ -6,8 +6,8 @@ import lombok.NonNull;
 @Data
 public class ItemData {
     @NonNull
-    private final Integer id;
+    private final InvariantField<Integer> id;
 
     @NonNull
-    private final String name;
+    private final InvariantField<String> name;
 }

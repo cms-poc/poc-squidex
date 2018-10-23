@@ -25,7 +25,4 @@ public interface ContentRepository {
 
     @GetMapping("/api/content/myapp/{schema}")
     Response items(@PathVariable("schema") String schema, @RequestHeader("Authorization") String bearerToken);
-//
-//    @PostMapping("/api/content/myapp/myschema")
-//    void addItem(@PathVariable("collection") String collection, @RequestBody Item item, @RequestHeader("Authorization") String bearerToken);
 }

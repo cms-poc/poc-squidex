@@ -22,21 +22,11 @@
                 </thead>
                 <tbody>
                 <tr th:each="item : ${items}">
-                    <td th:text="${item.id}"></td>
-                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.data.id.iv}"></td>
+                    <td th:text="${item.data.name.iv}"></td>
                 </tr>
                 </tbody>
             </table>
-
-            <form class="pt-4" th:action="@{/{schema}/items(schema=${schema})}" method="post">
-                <div class="form-group">
-                    <input id="id" name="id" type="text" class="form-control" placeholder="New item ID" autofocus/>
-                </div>
-                <div class="form-group">
-                    <input id="name" name="name" type="text" class="form-control" placeholder="The name of the new item"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-            </form>
 
             <div>
                 <a th:href="@{/}">Back</a>
